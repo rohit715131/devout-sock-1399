@@ -12,6 +12,14 @@ const colors = {
     800: "#075C37",
     900: "#064C2E",
   },
+  black: {
+    100: "#000",
+  },
+  white: {
+    100: "#fff",
+    200: "#efefef",
+    300: "#fc2779",
+  },
 };
 
 const customTheme = extendTheme({ colors });

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
-
+// import { Link } from "react-router-dom";
 import Logo from "../Superficial.png";
 
 const ProjectLogo = () => (
@@ -21,7 +21,9 @@ const NavBar = (props) => {
 
   return (
     <NavBarContainer {...props}>
-      <ProjectLogo />
+      <Link to="/">
+        <ProjectLogo />
+      </Link>
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
     </NavBarContainer>
@@ -81,19 +83,19 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/makeup"> Makeup </MenuItem>
-        <MenuItem to="/skincare">SKINCARE </MenuItem>
+        <MenuItem to="/Makeup"> MAKEUP </MenuItem>
+        <MenuItem to="/Skincare">SKINCARE </MenuItem>
         {/* <MenuItem to="/pricing">BLOG </MenuItem> */}
-        <MenuItem to="/offers">OFFERS </MenuItem>
-        <MenuItem to="/store">STORE </MenuItem>
-        <MenuItem to="/signup" isLast>
+        <MenuItem to="/Offers">OFFERS </MenuItem>
+        <MenuItem to="/Store">STORE </MenuItem>
+        <MenuItem to="/Login" isLast>
           <Button
             size="sm"
             rounded="md"
             color={["primary.500", "primary.500", "white", "white"]}
-            bg={["white", "white", "primary.500", "primary.500"]}
+            bg={["black", "black", "black.100", "black.100"]}
             _hover={{
-              bg: ["primary.100", "primary.100", "primary.600", "primary.600"],
+              bg: ["white.300", "white.300", "white.300", "white.300"],
             }}
           >
             LOGIN/REGISTER
@@ -112,10 +114,9 @@ const NavBarContainer = ({ children, ...props }) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={8}
-      p={8}
-      bg={["primary.500", "primary.500", "transparent", "transparent"]}
-      color={["white", "white", "primary.700", "primary.700"]}
+      p={3}
+      bg={["black", "black", "black.100", "black.100"]}
+      color={["white", "white", "white.100", "white.100"]}
       {...props}
     >
       {children}
