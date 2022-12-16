@@ -10,6 +10,9 @@ const initialState = {
   products: [],
   bestSeller: [],
   allProducts: [],
+  isSingleLoading: false,
+  singleProduct: {},
+  sortingValue: 1,
 };
 
 const AppProvider = ({ children }) => {
@@ -28,9 +31,25 @@ const AppProvider = ({ children }) => {
       dispatch({ type: "API_ERROR" });
     }
   };
+  const productFilter = () => {
+    dispatch({ type: "GET_SORTING" });
+  };
+
+  const getSingleProducts = async (url) => {
+    dispatch({ type: "IS_SINGLE_LOADING" });
+    try {
+      const res = await axios.get(url);
+      const singleProduct = res.data[0];
+      dispatch({ type: "SET_SINGLE_PRODUCTS", payload: singleProduct });
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" });
+    }
+  };
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, getSingleProducts, productFilter }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 

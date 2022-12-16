@@ -7,6 +7,8 @@ import Login from "../Routes/Login";
 import Otp from "../Routes/Otp";
 import Homepage from "./Homepage";
 import AllProduct from "../Components/AllProduct";
+import SingleProduct from "../Components/SingleProduct";
+import Cart from "../Components/ProductCart";
 
 function AllRoutes() {
   return (
@@ -17,8 +19,10 @@ function AllRoutes() {
         <Route path="/Otp" element={<Otp />}></Route>
         <Route path="/Makeup" element={<AllProduct />}></Route>
         <Route path="/Skincare" element={<AllProduct />}></Route>
+        <Route path="/product/:id" element={<SingleProduct />}></Route>
         <Route path="/Offers" element={<Offers />}></Route>
         <Route path="/Store" element={<Store />}></Route>
+        <Route path="/Cart" element={<Cart />}></Route>
       </Routes>
     </div>
   );
