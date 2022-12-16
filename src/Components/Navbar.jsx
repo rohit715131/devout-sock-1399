@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
-// import { Link } from "react-router-dom";
+import { Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import Logo from "../Superficial.png";
 
 const ProjectLogo = () => (
@@ -83,23 +83,36 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/Makeup"> MAKEUP </MenuItem>
-        <MenuItem to="/Skincare">SKINCARE </MenuItem>
-        {/* <MenuItem to="/pricing">BLOG </MenuItem> */}
-        <MenuItem to="/Offers">OFFERS </MenuItem>
-        <MenuItem to="/Store">STORE </MenuItem>
-        <MenuItem to="/Login" isLast>
-          <Button
-            size="sm"
-            rounded="md"
-            color={["primary.500", "primary.500", "white", "white"]}
-            bg={["black", "black", "black.100", "black.100"]}
-            _hover={{
-              bg: ["white.300", "white.300", "white.300", "white.300"],
-            }}
-          >
-            LOGIN/REGISTER
-          </Button>
+        <MenuItem>
+          {" "}
+          <Link to="/"> MAKEUP </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/Skincare">SKINCARE</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/Offers">OFFERS</Link>
+        </MenuItem>
+        {/* <MenuItem>
+          <Link to="/Store">STORE</Link>
+        </MenuItem> */}
+        <MenuItem isLast>
+          <Link to="/Login">
+            <Button
+              size="sm"
+              rounded="md"
+              color={["primary.500", "primary.500", "white", "white"]}
+              bg={["black", "black", "black.100", "black.100"]}
+              _hover={{
+                bg: ["white.300", "white.300", "white.300", "white.300"],
+              }}
+            >
+              LOGIN/REGISTER
+            </Button>
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/Cart">CART</Link>
         </MenuItem>
       </Stack>
     </Box>
