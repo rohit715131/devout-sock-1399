@@ -81,18 +81,66 @@ const ProductCart = () => {
           </Card>
         </Center>
       ) : (
-        <Card mt="3">
-          <CardBody>
-            <Text fontSize="2xl">CART SUMMARY</Text>
-            <Card>
+        <Stack spacing={4} width={"100%"} direction={"row"}>
+          <Stack
+            width={{
+              base: "100%",
+              md: "50%",
+            }}
+            textAlign={"center"}
+          >
+            <Card mt="3">
               <CardBody>
-                {cart.map((item) => {
-                  return <CartItem key={item.id} {...item} />;
-                })}
+                <Text fontSize="2xl">CART SUMMARY</Text>
+                <Card>
+                  <CardBody>
+                    {cart.map((item) => {
+                      return <CartItem key={item.id} {...item} />;
+                    })}
+                  </CardBody>
+                </Card>
               </CardBody>
             </Card>
-          </CardBody>
-        </Card>
+          </Stack>
+          <Stack
+            width={{
+              base: "100%",
+              md: "50%",
+            }}
+            textAlign={"center"}
+          >
+            <Card>
+              <CardBody>
+                <Text fontSize="2xl">PRICE DETAILS</Text>
+                <Card>
+                  <CardBody>
+                    <Stack spacing={4} width={"100%"} direction={"column"}>
+                      <Stack
+                        p={5}
+                        rounded="md"
+                        width={{
+                          base: "100%",
+                          md: "50%",
+                        }}
+                      >
+                        <Text fontSize="2xl">Subtotal</Text>
+                      </Stack>
+                      <Stack
+                        p={5}
+                        width={{
+                          base: "100%",
+                          md: "50%",
+                        }}
+                      >
+                        <Text fontSize="2xl">{}</Text>
+                      </Stack>
+                    </Stack>
+                  </CardBody>
+                </Card>
+              </CardBody>
+            </Card>
+          </Stack>
+        </Stack>
       )}
 
       <Footer />
