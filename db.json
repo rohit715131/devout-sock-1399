@@ -1534,7 +1534,7 @@
       "id": "TUTHi0m"
     }
   ],
-  "user_login_details": [
+  "user_login": [
     {
       "email": "rohit@gmail.com",
       "password": "123456",
@@ -1543,46 +1543,18 @@
       "id": "X2qZFAN"
     },
     {
-      "email": "sdfsf@gmail.com",
-      "password": "123456",
-      "phone": "98098988998",
-      "name": "Rohit",
-      "id": "Vw8cncQ"
+      "firstName": "erff",
+      "lastName": "ewedf",
+      "email": "fdfdds@gmail.com",
+      "phone": "3333223233233",
+      "id": "S8xaXox"
     },
     {
-      "email": "asdad@rg.com",
-      "password": "123456",
-      "phone": "89897897897",
-      "name": "Rohti ",
-      "id": "jS8CND9"
-    },
-    {
-      "email": "adfeasf!@ef.in",
-      "password": "123456",
-      "phone": "90909090",
-      "name": "asraf",
-      "id": "HLT2Id1"
-    },
-    {
-      "email": "sdfsf@rf.in",
-      "password": "123456",
-      "phone": "908890890",
-      "name": "Rocket",
-      "id": "0yFY-PV"
-    },
-    {
-      "email": "eef@rf.in",
-      "password": "123456",
-      "phone": "90890890980",
-      "name": "sam",
-      "id": "gvqkIh_"
-    },
-    {
-      "email": "dfgd@rf.in",
-      "password": "123445",
-      "phone": "998989089",
-      "name": "roih",
-      "id": "o2rde9x"
+      "firstName": "Rohit ",
+      "lastName": "Kumar ",
+      "email": "rohit71@gmail.com",
+      "phone": "9654732998",
+      "id": "0Fhzaaj"
     }
   ],
   "orders": [],

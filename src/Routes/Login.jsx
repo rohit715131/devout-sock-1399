@@ -13,9 +13,14 @@ import {
   Center,
   useColorModeValue,
   Divider,
+  InputGroup,
+  InputLeftAddon,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 export default function Login() {
+  const [phone, setPhone] = useState("");
+  localStorage.setItem("userMobile", phone);
   return (
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
       <Flex flex={1}>
@@ -31,12 +36,19 @@ export default function Login() {
           <Heading fontSize={"2xl"}>Login/Sign Up Using Phone</Heading>
           <FormControl id="email">
             <FormLabel>Enter Mobile Number</FormLabel>
-            <Input
-              type="number"
+
+            <InputGroup
               color={useColorModeValue("gray.800", "gray.200")}
               bg={useColorModeValue("gray.100", "gray.600")}
               rounded={"full"}
-            />
+            >
+              <InputLeftAddon children="+91" />
+              <Input
+                type="tel"
+                placeholder="phone number"
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </InputGroup>
           </FormControl>
           <Center>
             <Text fontSize="sm">

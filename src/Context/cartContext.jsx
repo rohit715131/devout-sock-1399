@@ -1,10 +1,10 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/cartreducer";
 import { useToast } from "@chakra-ui/react";
 const CartContext = createContext();
 
 const initialState = {
-  cart: [],
+  cart: JSON.parse(localStorage.getItem("CART")) || [],
   total_item: "",
   total_amount: "",
   shipping_fee: 100,
@@ -23,8 +23,19 @@ const CartProvider = ({ children }) => {
       isClosable: true,
     });
   };
+  const removeItem = (id) => {
+    console.log(id);
+    dispatch({ type: "REMOVE_ITEM", payload: id });
+  };
+  // add local storage
+
+  useEffect(() => {
+    dispatch({ type: "CART_TOTAL_ITEM" });
+    dispatch({ type: "CART_TOTAL_PRICE" });
+    localStorage.setItem("CART", JSON.stringify(state.cart));
+  }, [state.cart]);
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem }}>
       {children}
     </CartContext.Provider>
   );

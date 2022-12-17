@@ -31,8 +31,10 @@ const Products = (list) => {
               />
             </Center>
             <Stack mt="6" spacing="3">
-              <Heading size="md">{list.productName}</Heading>
-              <Text>{list.description}</Text>
+              <Heading size="md" height={20}>
+                {list.productName}
+              </Heading>
+              <Text height={20}>{list.description}</Text>
               <Text color="blue.600" fontSize="2xl">
                 ₹{list.price}
               </Text>

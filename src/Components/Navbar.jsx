@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
+import { Box, Flex, Text, Button, Stack, Badge } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Logo from "../Superficial.png";
+import { useCartContext } from "../Context/cartContext";
 
 const ProjectLogo = () => (
   <button style={{ height: "100%" }}>
@@ -71,6 +72,8 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 };
 
 const MenuLinks = ({ isOpen }) => {
+  const { total_item } = useCartContext();
+  console.log(total_item, "total_Item");
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -113,6 +116,16 @@ const MenuLinks = ({ isOpen }) => {
         </MenuItem>
         <MenuItem>
           <Link to="/Cart">CART</Link>
+          <Badge
+            rounded="full"
+            position="absolute"
+            top={3}
+            right={2}
+            fontSize="0.8em"
+            colorScheme="pink"
+          >
+            {total_item}
+          </Badge>
         </MenuItem>
       </Stack>
     </Box>
