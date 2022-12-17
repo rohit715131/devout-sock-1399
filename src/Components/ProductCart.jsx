@@ -2,6 +2,8 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import CartItem from "./CartItem";
+import { useState } from "react";
 
 import {
   Card,
@@ -18,10 +20,10 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { useCartContext } from "../Context/cartContext";
-import CartItem from "./CartItem";
+
 const ProductCart = () => {
-  const { cart } = useCartContext();
-  console.log("cart", cart);
+  const { cart, total_amount, shipping_fee } = useCartContext();
+
   return (
     <>
       <Navbar />
@@ -85,7 +87,7 @@ const ProductCart = () => {
           <Stack
             width={{
               base: "100%",
-              md: "50%",
+              md: "70%",
             }}
             textAlign={"center"}
           >
@@ -105,13 +107,15 @@ const ProductCart = () => {
           <Stack
             width={{
               base: "100%",
-              md: "50%",
+              md: "30%",
             }}
-            textAlign={"center"}
+            textAlign={"left"}
           >
             <Card>
               <CardBody>
-                <Text fontSize="2xl">PRICE DETAILS</Text>
+                <Center>
+                  <Text fontSize="2xl">PRICE DETAILS</Text>
+                </Center>
                 <Card>
                   <CardBody>
                     <Stack spacing={4} width={"100%"} direction={"column"}>
@@ -120,11 +124,13 @@ const ProductCart = () => {
                         rounded="md"
                         width={{
                           base: "100%",
-                          md: "50%",
+                          md: "100%",
                         }}
                       >
-                        <Text fontSize="2xl">Subtotal</Text>
+                        <Text fontSize="2xl">Subtotal:{total_amount}</Text>
+                        <Text fontSize="2xl"> Shipping_fee:{shipping_fee}</Text>
                       </Stack>
+
                       <Stack
                         p={5}
                         width={{
@@ -132,7 +138,10 @@ const ProductCart = () => {
                           md: "50%",
                         }}
                       >
-                        <Text fontSize="2xl">{}</Text>
+                        <Text fontSize="2xl"></Text>
+                        <Button bg="black" color="white">
+                          Checkout
+                        </Button>
                       </Stack>
                     </Stack>
                   </CardBody>

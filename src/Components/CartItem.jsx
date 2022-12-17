@@ -1,26 +1,18 @@
 import { useState } from "react";
-import {
-  Card,
-  CardBody,
-  Image,
-  Stack,
-  Text,
-  Heading,
-  Divider,
-  Box,
-  PackageTier,
-} from "@chakra-ui/react";
-import { MdOutlineDeleteForever } from "react-icons/fa";
+import { Image, Stack, Text, Heading, Box } from "@chakra-ui/react";
+import { FaTrash } from "react-icons/fa";
 import CartAmountToggle from "./CartAmountToggle";
+import { useCartContext } from "../Context/cartContext";
 const CartItem = ({ id, image, name, price }) => {
-  const [amount, setAmount] = useState(1);
+  const { removeItem } = useCartContext();
+  const [quantity, setQuantity] = useState(1);
 
   const setDecrease = () => {
-    amount > 1 ? setAmount(amount - 1) : setAmount(1);
+    quantity > 1 ? setQuantity(quantity - 1) : setQuantity(1);
   };
 
   const setIncrease = () => {
-    setAmount(amount + 1);
+    setQuantity(quantity + 1);
   };
 
   return (
@@ -75,8 +67,8 @@ const CartItem = ({ id, image, name, price }) => {
               >
                 {name}
               </Text>
-              <Heading fontSize={"2xl"} fontFamily={"body"}>
-                {price}
+              <Heading fontSize={"md"} fontFamily={"body"}>
+                {price * quantity}
               </Heading>
             </Stack>
             <Stack
@@ -84,9 +76,13 @@ const CartItem = ({ id, image, name, price }) => {
                 base: "100%",
                 md: "10%",
               }}
-              textAlign={"left"}
+              textAlign={"right"}
+              color="red"
             >
-              {/* <MdOutlineDeleteForever /> */}
+              <FaTrash
+                style={{ cursor: "pointer" }}
+                onClick={() => removeItem(id)}
+              />
             </Stack>
             <Stack
               width={{
@@ -96,7 +92,7 @@ const CartItem = ({ id, image, name, price }) => {
             >
               <Text textAlign={"left"}>
                 <CartAmountToggle
-                  amount={amount}
+                  quantity={quantity}
                   setDecrease={setDecrease}
                   setIncrease={setIncrease}
                 />
