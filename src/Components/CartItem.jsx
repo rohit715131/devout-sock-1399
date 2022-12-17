@@ -10,6 +10,7 @@ import {
   Box,
   PackageTier,
 } from "@chakra-ui/react";
+import { MdOutlineDeleteForever } from "react-icons/fa";
 import CartAmountToggle from "./CartAmountToggle";
 const CartItem = ({ id, image, name, price }) => {
   const [amount, setAmount] = useState(1);
@@ -21,12 +22,19 @@ const CartItem = ({ id, image, name, price }) => {
   const setIncrease = () => {
     setAmount(amount + 1);
   };
+
   return (
     <>
       <Box py={6} px={5} min={"100vh"}>
         <Stack spacing={4} width={"100%"} direction={"column"}>
           <Stack
             p={5}
+            boxShadow="outline"
+            rounded="md"
+            width={{
+              base: "100%",
+              md: "100%",
+            }}
             alignItems={"center"}
             justifyContent={{
               base: "flex-start",
@@ -40,9 +48,9 @@ const CartItem = ({ id, image, name, price }) => {
             <Stack
               width={{
                 base: "100%",
-                md: "40%",
+                md: "20%",
               }}
-              textAlign={"center"}
+              textAlign={"left"}
             >
               <Image
                 boxSize="100px"
@@ -50,10 +58,18 @@ const CartItem = ({ id, image, name, price }) => {
                 src={image}
                 alt={image}
               />
+            </Stack>
+            <Stack
+              width={{
+                base: "100%",
+                md: "50%",
+              }}
+              textAlign={"left"}
+            >
               <Text
-                color={"green.500"}
+                color={"black.100"}
                 textTransform={"uppercase"}
-                fontWeight={800}
+                fontWeight={400}
                 fontSize={"sm"}
                 letterSpacing={1.1}
               >
@@ -66,10 +82,19 @@ const CartItem = ({ id, image, name, price }) => {
             <Stack
               width={{
                 base: "100%",
-                md: "60%",
+                md: "10%",
+              }}
+              textAlign={"left"}
+            >
+              {/* <MdOutlineDeleteForever /> */}
+            </Stack>
+            <Stack
+              width={{
+                base: "100%",
+                md: "10%",
               }}
             >
-              <Text textAlign={"center"}>
+              <Text textAlign={"left"}>
                 <CartAmountToggle
                   amount={amount}
                   setDecrease={setDecrease}
@@ -78,11 +103,6 @@ const CartItem = ({ id, image, name, price }) => {
               </Text>
             </Stack>
           </Stack>
-          <Divider />
-
-          <Divider />
-
-          <Divider />
         </Stack>
       </Box>
     </>
