@@ -44,7 +44,7 @@ const BestSellerProducts = () => {
         </Center>
       </h1>
       <div style={{ display: "flex", margin: "auto", width: "80%" }}>
-        <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+        <Grid templateColumns="repeat(3, 1fr)" gap={6}>
           {bestSeller.map((list) => {
             return <Products key={list.id} {...list} />;
           })}

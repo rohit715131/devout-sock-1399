@@ -23,7 +23,7 @@ export default function Registration() {
   const handleRegistration = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/user_login", {
+      .post("https://mock-server-superficial.onrender.com/user_login", {
         firstName,
         lastName,
         email,

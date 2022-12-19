@@ -68,7 +68,7 @@ const CartItem = ({ id, image, name, price }) => {
                 {name}
               </Text>
               <Heading fontSize={"md"} fontFamily={"body"}>
-                {price * quantity}
+                ₹{price * quantity}
               </Heading>
             </Stack>
             <Stack

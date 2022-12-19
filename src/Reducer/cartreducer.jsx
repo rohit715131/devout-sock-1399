@@ -36,13 +36,15 @@ const CartReducer = (state, action) => {
   }
   if (action.type === "CART_TOTAL_PRICE") {
     let total_price = state.cart.reduce((initial, current) => {
-      const { price, quantity } = current;
-      initial = initial + price * quantity;
+      // console.log(state.cart, "state cart");
+      const { price } = current;
+      initial = initial + price;
+      console.log(initial, "price check");
       return initial;
     }, 0);
     return {
       ...state,
-      total_price: total_price,
+      total_amount: total_price,
     };
   }
   return state;

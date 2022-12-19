@@ -9,7 +9,7 @@ import axios from "axios";
 import reducer from "../Reducer/ProductReducer";
 
 const AppContext = createContext();
-const API = `http://localhost:8000/all_products`;
+const API = `https://mock-server-superficial.onrender.com/all_products`;
 const initialState = {
   isLoading: false,
   isError: false,

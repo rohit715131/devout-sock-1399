@@ -26,7 +26,7 @@ export default function Login() {
   let mobile = localStorage.getItem("userMobile");
   const handleOtp = () => {
     axios
-      .get("http://localhost:8000/user_login")
+      .get("https://mock-server-superficial.onrender.com/user_login")
       .then(function (response) {
         let users = response.data;
         for (let i = 0; i < users.length; i++) {

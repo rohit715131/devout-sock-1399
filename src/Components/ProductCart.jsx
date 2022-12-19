@@ -118,17 +118,26 @@ const ProductCart = () => {
                 </Center>
                 <Card>
                   <CardBody>
-                    <Stack spacing={4} width={"100%"} direction={"column"}>
+                    <Stack spacing={4} width={"100%"} direction={"row"}>
                       <Stack
                         p={5}
                         rounded="md"
                         width={{
                           base: "100%",
-                          md: "100%",
+                          md: "50%",
                         }}
                       >
-                        <Text fontSize="2xl">Subtotal:{total_amount}</Text>
-                        <Text fontSize="2xl"> Shipping_fee:{shipping_fee}</Text>
+                        <Heading fontSize={"md"} fontFamily={"body"}>
+                          Subtotal:
+                        </Heading>
+                        <Heading fontSize={"md"} fontFamily={"body"}>
+                          {" "}
+                          Shipping_fee:
+                        </Heading>
+                        <Heading fontSize={"md"} fontFamily={"body"}>
+                          {" "}
+                          Total:
+                        </Heading>
                       </Stack>
 
                       <Stack
@@ -138,11 +147,36 @@ const ProductCart = () => {
                           md: "50%",
                         }}
                       >
-                        <Text fontSize="2xl"></Text>
-                        <Button bg="black" color="white">
+                        <Heading fontSize={"lg"} fontFamily={"body"}>
+                          ₹{total_amount}
+                        </Heading>
+                        <Heading fontSize={"lg"} fontFamily={"body"}>
+                          ₹{shipping_fee}
+                        </Heading>
+                        <Heading fontSize={"lg"} fontFamily={"body"}>
+                          ₹{shipping_fee + total_amount}
+                        </Heading>
+                      </Stack>
+                    </Stack>
+                    <Stack
+                      width={{
+                        base: "100%",
+                        md: "100%",
+                      }}
+                      textAlign={"center"}
+                    >
+                      <Link to="/Checkout">
+                        {" "}
+                        <Button
+                          w="100"
+                          alignContent="right"
+                          bg="black"
+                          color="white"
+                          variant="solid"
+                        >
                           Checkout
                         </Button>
-                      </Stack>
+                      </Link>
                     </Stack>
                   </CardBody>
                 </Card>
