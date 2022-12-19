@@ -124,7 +124,7 @@ const MenuLinks = ({ isOpen }) => {
             fontSize="0.8em"
             colorScheme="pink"
           >
-            {total_item}
+            {total_item === 0 ? 0 : "1+"}
           </Badge>
         </MenuItem>
       </Stack>

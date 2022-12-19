@@ -28,7 +28,7 @@ import {
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { MdLocalShipping } from "react-icons/md";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-const API = `http://localhost:8000/all_products`;
+const API = `https://mock-server-superficial.onrender.com/all_products`;
 
 const SingleProduct = () => {
   const { getSingleProducts, isSingleLoading, singleProduct } =
@@ -201,22 +201,25 @@ const SingleProduct = () => {
               </Box>
             </Stack>
 
-            <Button
-              rounded={"none"}
-              w={"full"}
-              mt={8}
-              size={"lg"}
-              py={"7"}
-              bg={useColorModeValue("gray.900", "gray.50")}
-              color={useColorModeValue("white", "gray.900")}
-              textTransform={"uppercase"}
-              _hover={{
-                transform: "translateY(2px)",
-                boxShadow: "lg",
-              }}
-            >
-              Add to cart
-            </Button>
+            <Link to="/Cart">
+              {" "}
+              <Button
+                rounded={"none"}
+                w={"full"}
+                mt={8}
+                size={"lg"}
+                py={"7"}
+                bg={useColorModeValue("gray.900", "gray.50")}
+                color={useColorModeValue("white", "gray.900")}
+                textTransform={"uppercase"}
+                _hover={{
+                  transform: "translateY(2px)",
+                  boxShadow: "lg",
+                }}
+              >
+                Go to cart
+              </Button>
+            </Link>
 
             <Stack
               direction="row"

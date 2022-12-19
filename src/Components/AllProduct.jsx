@@ -21,14 +21,16 @@ const AllProduct = () => {
   if (isLoading) {
     return (
       <>
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-          m="20"
-        />
+        <Center>
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+            m="20"
+          />
+        </Center>
       </>
     );
   }
